@@ -1,0 +1,32 @@
+{
+  "name": "titanium-dependency-injection",
+  "version": "1.0.0",
+  "keywords": [
+    "Polymer 2",
+    "Polymer 2 Dependency Injection",
+    "Dependency Injection",
+    "Polymer 2 Typescript",
+    "Inversion of Control"
+  ],
+  "authors": [
+    "Aaron Drabeck <aaron-drabeck@leavitt.com>",
+    "Anthony Thomas <anthony-thomas@leavitt.com>",
+    "Kasey Hinton <kasey-hinton@leavitt.com>"
+  ],
+  "main": "titanium-requestor-mixin.html",
+  "description": "Dependency injection for Polymer",
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "tsconfig.json",
+    ".gitignore",
+    ".vscode"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "web-component-tester": "^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  }
+}
