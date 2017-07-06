@@ -1,0 +1,59 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+<link rel="import" href="../titanium-dependency-resolver-mixin.html">
+<link rel="import" href="../titanium-provider-mixin.html">
+<link rel="import" href="../titanium-requester-mixin.html">
+
+<dom-module id="x-demo">
+    <template>
+        <h3>[[testValue]]</h3>
+
+    </template>
+
+    <script>
+        // class XDemo extends Polymer.mixinBehaviors([TitanumDependencyResolverMixin, TitanumProviderMixin,
+        //     TitaniumRequesterMixin
+        // ], Polymer.Element) {
+        class XDemo extends TitanumDependencyResolverMixin(TitanumProviderMixin(TitaniumRequesterMixin((Polymer.Element)))) {
+            static get is() {
+                return 'x-demo';
+            }
+
+            async ready() {
+                super.ready();
+                this.provideInstance('aKey', {
+                    favoriteMovies: ['Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun 2', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun'
+                    ]
+                });
+                var favoriteMoviesObject = await this.requestInstance('aKey');
+                this.set('testValue', favoriteMoviesObject.favoriteMovies.join(','));
+                console.log(favoriteMoviesObject.favoriteMovies.join(','))
+            }
+
+            static get properties() {
+                return {
+                    testValue: {
+                        type: String
+                    }
+                }
+            }
+        }
+        customElements.define(XDemo.is, XDemo);
+    </script>
+</dom-module>

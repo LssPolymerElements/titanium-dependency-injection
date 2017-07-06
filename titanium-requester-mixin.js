@@ -1,22 +1,35 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var TitaniumRequesterMixin = (superClass) => {
     return class extends superClass {
         requestProvider(key) {
-            const event = new CustomEvent("request-provider", {
-                detail: { key },
-                bubbles: true,
-                cancelable: true
+            return __awaiter(this, void 0, void 0, function* () {
+                var resolveFn = (value) => { return value; };
+                var promise = new Promise((resolve, reject) => {
+                    resolveFn = resolve;
+                });
+                const event = new CustomEvent("titanium-request-instance", {
+                    detail: { key, resolve: resolveFn },
+                    bubbles: true,
+                    cancelable: true
+                });
+                window.dispatchEvent(event);
+                return promise;
             });
-            window.dispatchEvent(event);
-            if (event.defaultPrevented) {
-                return event.detail.provider;
-            }
-            else {
-                throw new Error(`no provider found for ${key}`);
-            }
         }
         ;
         requestInstance(key) {
-            return this.requestProvider(key)();
+            return __awaiter(this, void 0, void 0, function* () {
+                var value = yield this.requestProvider(key);
+                console.log('request instance value:', value);
+                return value;
+            });
         }
         ;
         value(key) {
