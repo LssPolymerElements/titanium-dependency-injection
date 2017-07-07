@@ -1,0 +1,33 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../titanium-requester-mixin.html">
+
+<dom-module id="demo-requester">
+    <template>
+        <h3>testValue:[[testValue]]</h3>
+    </template>
+
+    <script>
+        class DemoRequester extends TitaniumRequesterMixin(Polymer.Element) {
+            static get is() {
+                return 'demo-requester';
+            }
+
+
+            async ready() {
+                super.ready();
+                var service = await this.requestInstance('someService');
+                this.set('testValue', service.favoriteMovies.join(','));
+            }
+
+            static get properties() {
+                return {
+                    testValue: {
+                        type: String,
+                        value: 'test'
+                    }
+                }
+            }
+        }
+        customElements.define(DemoRequester.is, DemoRequester);
+    </script>
+</dom-module>

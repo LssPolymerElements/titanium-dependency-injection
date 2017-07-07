@@ -1,0 +1,15 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="./demo-provider.html">
+<dom-module id="demo-resolver">
+    <template>
+        <demo-provider></demo-provider>
+    </template>
+    <script>
+        class DemoResolver extends TitanumDependencyResolverMixin(Polymer.Element) {
+            static get is() {
+                return 'demo-resolver';
+            }
+        }
+        customElements.define(DemoResolver.is, DemoResolver);
+    </script>
+</dom-module>

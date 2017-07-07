@@ -1,57 +1,41 @@
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+<link rel="import" href="../../paper-button/paper-button.html">
 <link rel="import" href="../titanium-dependency-resolver-mixin.html">
 <link rel="import" href="../titanium-provider-mixin.html">
 <link rel="import" href="../titanium-requester-mixin.html">
+<link rel="import" href="./demo-resolver.html">
 
 <dom-module id="x-demo">
     <template>
-        <h3>[[testValue]]</h3>
-
+        <demo-snippet>
+            <code>
+                <demo-resolver></demo-resolver>
+            </code>
+        </demo-snippet>
     </template>
 
     <script>
         // class XDemo extends Polymer.mixinBehaviors([TitanumDependencyResolverMixin, TitanumProviderMixin,
         //     TitaniumRequesterMixin
         // ], Polymer.Element) {
-        class XDemo extends TitanumDependencyResolverMixin(TitanumProviderMixin(TitaniumRequesterMixin((Polymer.Element)))) {
+        class XDemo extends Polymer.Element {
             static get is() {
                 return 'x-demo';
             }
 
-            async ready() {
+            ready() {
                 super.ready();
-                this.provideInstance('aKey', {
-                    favoriteMovies: ['Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun 2', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun'
-                    ]
-                });
-                var favoriteMoviesObject = await this.requestInstance('aKey');
-                this.set('testValue', favoriteMoviesObject.favoriteMovies.join(','));
-                console.log(favoriteMoviesObject.favoriteMovies.join(','))
-            }
-
-            static get properties() {
-                return {
-                    testValue: {
-                        type: String
-                    }
-                }
+                // window.addEventListener("titanium-provide-instance", (event) => {
+                //     const key = event.detail.key;
+                //     const instance = event.detail.instance;
+                //     this.providers[key] = instance;
+                //     if (this.unprovidedRequests[key]) {
+                //         this.unprovidedRequests[key].forEach((resolve) => {
+                //             resolve(instance);
+                //         });
+                //     }
+                // });
             }
         }
         customElements.define(XDemo.is, XDemo);
