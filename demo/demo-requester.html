@@ -3,6 +3,7 @@
 
 <dom-module id="demo-requester">
     <template>
+        <paper-button on-tap="buttonTapped">request someService</paper-button>
         <h3>testValue:[[testValue]]</h3>
     </template>
 
@@ -12,9 +13,7 @@
                 return 'demo-requester';
             }
 
-
-            async ready() {
-                super.ready();
+            async buttonTapped() {
                 var service = await this.requestInstance('someService');
                 this.set('testValue', service.favoriteMovies.join(','));
             }

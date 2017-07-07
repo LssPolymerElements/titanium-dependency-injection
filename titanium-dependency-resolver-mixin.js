@@ -6,6 +6,10 @@ var TitanumDependencyResolverMixin = (superClass) => {
             window.addEventListener("titanium-provide-instance", (event) => {
                 const key = event.detail.key;
                 const instance = event.detail.instance;
+                if (this.providers[key]) {
+                    console.warn(`an instance with a key of '${key}' has already been provided to this resolver`);
+                    return;
+                }
                 this.providers[key] = instance;
                 if (this.unprovidedRequests[key]) {
                     this.unprovidedRequests[key].forEach((resolve) => {
@@ -17,9 +21,7 @@ var TitanumDependencyResolverMixin = (superClass) => {
                 var key = event.detail.key;
                 var resolve = event.detail.resolve;
                 var instance = this.providers[key];
-                console.log(key, instance);
                 if (instance) {
-                    console.log(resolve);
                     resolve(instance);
                 }
                 else {

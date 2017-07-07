@@ -9,6 +9,10 @@
             window.addEventListener("titanium-provide-instance", (event: CustomEvent) => {
                 const key: string = event.detail.key;
                 const instance: any = event.detail.instance;
+                if (this.providers[key]) {
+                    console.warn(`an instance with a key of '${key}' has already been provided to this resolver`);
+                    return;
+                }
                 this.providers[key] = instance;
                 if (this.unprovidedRequests[key]) {
                     this.unprovidedRequests[key].forEach((resolve: any) => {
@@ -21,9 +25,7 @@
                 var key: string = event.detail.key;
                 var resolve: any = event.detail.resolve;
                 var instance = this.providers[key];
-                console.log(key, instance);
                 if (instance) {
-                    console.log(resolve)
                     resolve(instance);
                 } else {
                     if (this.unprovidedRequests[key]) {
