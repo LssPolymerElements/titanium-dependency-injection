@@ -1,9 +1,8 @@
 ﻿var TitanumDependencyResolverMixin = (superClass: any) => {
     return class extends superClass {
-        ready() {
-            if (super.ready)
-                super.ready();
 
+
+        ready() {
             this.providers = {};
             this.unprovidedRequests = {};
 
@@ -34,6 +33,8 @@
                     }
                 }
             });
+            if (super.ready)
+                super.ready();
         }
 
 

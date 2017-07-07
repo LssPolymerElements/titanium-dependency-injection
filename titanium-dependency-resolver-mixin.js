@@ -1,8 +1,6 @@
 var TitanumDependencyResolverMixin = (superClass) => {
     return class extends superClass {
         ready() {
-            if (super.ready)
-                super.ready();
             this.providers = {};
             this.unprovidedRequests = {};
             window.addEventListener("titanium-provide-instance", (event) => {
@@ -33,6 +31,8 @@ var TitanumDependencyResolverMixin = (superClass) => {
                     }
                 }
             });
+            if (super.ready)
+                super.ready();
         }
     };
 };

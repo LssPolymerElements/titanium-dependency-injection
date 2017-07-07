@@ -14,11 +14,13 @@ var TitaniumRequesterMixin = (superClass) => {
                 var promise = new Promise((resolve, reject) => {
                     resolveFn = resolve;
                 });
-                const event = new CustomEvent("titanium-request-instance", {
+                var options = {
                     detail: { key, resolve: resolveFn },
                     bubbles: true,
+                    composed: true,
                     cancelable: true
-                });
+                };
+                const event = new CustomEvent("titanium-request-instance", options);
                 window.dispatchEvent(event);
                 return promise;
             });
