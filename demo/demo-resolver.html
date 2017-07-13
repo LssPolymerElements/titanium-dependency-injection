@@ -1,9 +1,11 @@
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../titanium-dependency-injection/titanium-dependency-resolver-mixin.html">
 <link rel="import" href="./demo-provider.html">
+<link rel="import" href="./demo-requester.html">
 <dom-module id="demo-resolver">
     <template>
         <demo-provider></demo-provider>
+        <demo-requester></demo-requester>
     </template>
     <script>
         class DemoResolver extends TitanumDependencyResolverMixin(Polymer.Element) {
