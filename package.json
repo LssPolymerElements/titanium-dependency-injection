@@ -1,0 +1,31 @@
+{
+    "name": "titanium-dependency-injection",
+    "version": "1.0.0",
+    "description": "",
+    "main": "titanium-requester-mixin.html",
+    "dependencies": {},
+    "devDependencies": {
+        "tslint": "^4.0.2",
+        "browser-sync": "^2.18.2",
+        "gulp": "^3.9.1",
+        "typescript": "^2.4.1",
+        "bower": "*"
+    },
+    "scripts": {
+        "prepublish": "npm run build",
+        "postinstall": "bower install",
+        "lint": "tslint \"*.ts\"",
+        "build": "tsc",
+        "test": "npm run lint && npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:LssPolymerElements/titanium-dependency-injection.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/LssPolymerElements/titanium-dependency-injection/issues"
+    },
+    "homepage": "https://www.webcomponents.org/element/LssPolymerElements/titanium-dependency-injection"
+}
