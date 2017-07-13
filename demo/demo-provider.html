@@ -1,0 +1,51 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../titanium-dependency-injection/titanium-provider-mixin.html">
+<link rel="import" href="../../paper-button/paper-button.html">
+
+<dom-module id="demo-provider">
+    <template>
+        <paper-button on-tap="buttonTapped">Provide someService</paper-button>
+    </template>
+
+    <script>
+        class DemoProvider extends TitanumProviderMixin(Polymer.Element) {
+            static get is() {
+                return 'demo-provider';
+            }
+
+            async buttonTapped() {
+                this.provideInstance('someService', {
+                    favoriteMovies: ['Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun 2', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
+                        'Top Gun',
+                        'Top Gun'
+                    ]
+                })
+            }
+
+
+        }
+        customElements.define(DemoProvider.is, DemoProvider);
+    </script>
+</dom-module>

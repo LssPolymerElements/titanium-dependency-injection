@@ -1,27 +1,27 @@
-var TitaniumRequesterMixin = (superClass) => {
+let TitaniumRequesterMixin = (superClass) => {
     return class extends superClass {
-        requestProvider(key) {
-            const event = new CustomEvent("request-provider", {
-                detail: { key },
-                bubbles: true,
-                cancelable: true
+        async requestProvider(key) {
+            let resolveFn = (value) => { return value; };
+            let promise = new Promise((resolve, reject) => {
+                resolveFn = resolve;
             });
+            let options = {
+                detail: { key, resolve: resolveFn },
+                bubbles: true,
+                composed: true,
+                cancelable: true
+            };
+            const event = new CustomEvent('titanium-request-instance', options);
             window.dispatchEvent(event);
-            if (event.defaultPrevented) {
-                return event.detail.provider;
-            }
-            else {
-                throw new Error(`no provider found for ${key}`);
-            }
+            return promise;
         }
-        ;
-        requestInstance(key) {
-            return this.requestProvider(key)();
+        async requestInstance(key) {
+            let value = await this.requestProvider(key);
+            console.log('request instance value:', value);
+            return value;
         }
-        ;
         value(key) {
             return () => this.requestInstance(key);
         }
-        ;
     };
 };
