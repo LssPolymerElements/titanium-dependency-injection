@@ -4,7 +4,7 @@
 
 <dom-module id="demo-provider">
     <template>
-        <paper-button on-tap="buttonTapped">Provide someService</paper-button>
+        <paper-button on-tap="buttonTapped">Provide Example Service</paper-button>
     </template>
 
     <script>
@@ -14,33 +14,8 @@
             }
 
             async buttonTapped() {
-                this.provideInstance('someService', {
-                    favoriteMovies: ['Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun 2', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun', 'Top Gun',
-                        'Top Gun',
-                        'Top Gun'
-                    ]
+                this.provideInstance('exampleService', {
+                    favoriteMovie: 'Top Gun'
                 })
             }
 
