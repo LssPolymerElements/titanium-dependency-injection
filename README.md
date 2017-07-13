@@ -1,10 +1,14 @@
 # titanium-dependency-injection
 
+[![Build status](https://ci.appveyor.com/api/projects/status/6r2d4l28kui8a1xu/branch/master?svg=true)](https://ci.appveyor.com/project/aarondrabeck/titanium-dependency-injection/branch/master)
+
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/LssPolymerElements/titanium-dependency-injection)
+
 To install use: `bower install --save titanium-dependency-injection`
 
 [ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/titanium-dependency-injection)
 
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/LssPolymerElements/titanium-dependency-injection)
+
 
 
 ## Scenario:
