@@ -28,7 +28,7 @@ gulp.task('browser-sync', function () {
     browserSync.init({
         proxy: "localhost:502",
         files: '*.html, *.js, images/*, demo/*.html, demo/*.js',
-        startPath: '/components/lss-api-service/demo/index.html'
+        startPath: '/components/titanium-dependency-injection/demo/index.html'
     });
 });
 
