@@ -10,7 +10,7 @@ To install use: `bower install --save titanium-dependency-injection`
 ## Scenario:
 
 ```
----app-main
+---app-main  <-- RESOLVER. anything provided below this (user-manager in this case) is resolved from this component
     --my-parent-component  <-- PROVIDER of user-manager.  user-manager lives in this component.
        -user-manager
        -component-a      
@@ -27,12 +27,19 @@ To install use: `bower install --save titanium-dependency-injection`
        
 ## How to use:
 
-In this example we have a single instance component that is called user-manager that we would like to use in a child component nested deep in our app.  Rather then binding the user-manager through the component tree in our app, we can simple provide and request the user-manager as seen below. 
-       
-### 1. Provide your component in any parent component
+In this example we have a single instance component that is called user-manager that we would like to use in a child component nested deep in our app.  Rather then binding the user-manager through the component tree in our app, we can simply provide, store, and then request the user-manager as seen below. 
+
+### 1. Declare a parent component as the dependency resolver, which will store the references to provided objects (user-manager)
 ```typescript
-class MyParentComponent extends TitaniumProviderMixin(Polymer.Element) {
-  
+class MyParentComponent extends TitanumDependencyResolverMixin(Polymer.Element) {
+
+}
+```
+
+
+### 2. Provide your component in any child component
+```typescript
+class FirstChildComponent extends TitanumProviderMixin(Polymer.Element) {
     ready() {
         super.ready();    
         this.provideInstance("UserManager", this.$.userManager);
@@ -41,14 +48,12 @@ class MyParentComponent extends TitaniumProviderMixin(Polymer.Element) {
 ```
 
 
-### 2. Request your component from any child component
+### 3. Request your component from any child component
 ```typescript
-class MyChildComponent extends TitaniumRequesterMixin(Polymer.Element) {
+class DemoRequester extends TitaniumRequesterMixin(Polymer.Element) {
     async connectedCallback() {
          super.connectedCallback();
-         var p = new Promise();
-         this.requestInstance("UserManager",p);
-         var userManager = await p;
+         var userManager = await this.requestInstance('UserManager');
          userManager.ensureLoggedIn();
     }
 }
@@ -57,7 +62,7 @@ class MyChildComponent extends TitaniumRequesterMixin(Polymer.Element) {
 
 ### Be both a requester and provider
 ```typescript
-class MyComponent extends Polymer.mixinBehaviors([LssProviderBehavior,LssRequesterBehavior],Polymer.Element) {
+class MyComponent extends Polymer.mixinBehaviors([TitanumProviderMixin,TitaniumRequesterMixin],Polymer.Element) {
    ready() {
         super.ready();    
         this.provideInstance("MyComponent", this);
@@ -65,16 +70,12 @@ class MyComponent extends Polymer.mixinBehaviors([LssProviderBehavior,LssRequest
    
    async connectedCallback() {
         super.connectedCallback();
-        var p = new Promise();
-        this.requestInstance("UserManager",p);
-        var userManager = await p;
+        let userManager = await this.requestInstance("UserManager");
         userManager.ensureLoggedIn();
    }
    
    async onLogoutButtonClick(){
-        var p = new Promise();
-        this.requestInstance("UserManager",p);
-        var userManager = await p;
+        let userManager = this.requestInstance("UserManager");
         userManager.logout();
    }
 }

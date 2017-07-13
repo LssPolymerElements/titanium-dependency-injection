@@ -1,6 +1,6 @@
 ﻿{
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es2017",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "strictNullChecks": true,

@@ -1,4 +1,4 @@
-﻿var TitanumDependencyResolverMixin = (superClass: any) => {
+﻿let TitanumDependencyResolverMixin = (superClass: any) => {
     return class extends superClass {
 
 
@@ -6,7 +6,7 @@
             this.providers = {};
             this.unprovidedRequests = {};
 
-            window.addEventListener("titanium-provide-instance", (event: CustomEvent) => {
+            window.addEventListener('titanium-provide-instance', (event: CustomEvent) => {
                 const key: string = event.detail.key;
                 const instance: any = event.detail.instance;
                 if (this.providers[key]) {
@@ -21,10 +21,10 @@
                 }
             });
 
-            window.addEventListener("titanium-request-instance", (event: CustomEvent) => {
-                var key: string = event.detail.key;
-                var resolve: any = event.detail.resolve;
-                var instance = this.providers[key];
+            window.addEventListener('titanium-request-instance', (event: CustomEvent) => {
+                let key: string = event.detail.key;
+                let resolve: any = event.detail.resolve;
+                let instance = this.providers[key];
                 if (instance) {
                     resolve(instance);
                 } else {
@@ -42,5 +42,5 @@
 
 
         providers: any;
-    }
-}
+    };
+};

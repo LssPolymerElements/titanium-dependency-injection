@@ -2,6 +2,7 @@
   "name": "titanium-dependency-injection",
   "version": "1.0.0",
   "keywords": [
+    "Leavitt Software Solutions",
     "Polymer 2",
     "Polymer 2 Dependency Injection",
     "Dependency Injection",
@@ -31,5 +32,8 @@
     "web-component-tester": "^6.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
     "paper-button": "PolymerElements/paper-button#^2.0.0"
+  },
+  "demos": {
+    "Demo": "demo/index.html"
   }
 }
