@@ -1,4 +1,4 @@
-let TitanumProviderMixin = (superClass) => {
+let TitaniumProviderMixin = (superClass) => {
     return class extends superClass {
         provideInstance(key, instance) {
             let options = {

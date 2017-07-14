@@ -8,8 +8,16 @@ To install use: `bower install --save titanium-dependency-injection`
 
 [ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/titanium-dependency-injection)
 
-
-
+```html
+<paper-button on-tap="provideButtonTapped">provide Example Service</paper-button>
+<paper-button on-tap="requestButtonTapped">request Example Service</paper-button>
+<h3>testValue:[[testValue]]</h3>
+<script>
+    class MyElement extends Polymer.mixinBehaviors([TitaniumDependencyResolverMixin,TitaniumProviderMixin,TitaniumRequesterMixin],Polymer.Element){
+        
+    }
+</script>
+```
 
 ## Scenario:
 
@@ -35,7 +43,7 @@ In this example we have a single instance component that is called user-manager 
 
 ### 1. Declare a parent component as the dependency resolver, which will store the references to provided objects (user-manager)
 ```typescript
-class MyParentComponent extends TitanumDependencyResolverMixin(Polymer.Element) {
+class MyParentComponent extends TitaniumDependencyResolverMixin(Polymer.Element) {
 
 }
 ```
@@ -43,7 +51,7 @@ class MyParentComponent extends TitanumDependencyResolverMixin(Polymer.Element) 
 
 ### 2. Provide your component in any child component
 ```typescript
-class FirstChildComponent extends TitanumProviderMixin(Polymer.Element) {
+class FirstChildComponent extends TitaniumProviderMixin(Polymer.Element) {
     ready() {
         super.ready();    
         this.provideInstance("UserManager", this.$.userManager);
@@ -66,7 +74,7 @@ class DemoRequester extends TitaniumRequesterMixin(Polymer.Element) {
 
 ### Be both a requester and provider
 ```typescript
-class MyComponent extends Polymer.mixinBehaviors([TitanumProviderMixin,TitaniumRequesterMixin],Polymer.Element) {
+class MyComponent extends Polymer.mixinBehaviors([TitaniumProviderMixin,TitaniumRequesterMixin],Polymer.Element) {
    ready() {
         super.ready();    
         this.provideInstance("MyComponent", this);
