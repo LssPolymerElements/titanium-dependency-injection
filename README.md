@@ -14,7 +14,16 @@ To install use: `bower install --save titanium-dependency-injection`
 <h3>testValue:[[testValue]]</h3>
 <script>
     class MyElement extends Polymer.mixinBehaviors([TitaniumDependencyResolverMixin,TitaniumProviderMixin,TitaniumRequesterMixin],Polymer.Element){
-        
+        async provideButtonTapped() {
+            this.provideInstance('exampleService', {
+                favoriteMovie: 'Top Gun'
+            })
+        }
+
+        async requestButtonTapped() {
+            var service = await this.requestInstance('exampleService');
+            this.set('testValue', service.favoriteMovie);
+        }
     }
 </script>
 ```
