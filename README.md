@@ -13,7 +13,7 @@ To install use: `bower install --save titanium-dependency-injection`
 <paper-button on-tap="requestButtonTapped">request Example Service</paper-button>
 <h3>testValue:[[testValue]]</h3>
 <script>
-    class MyElement extends Polymer.mixinBehaviors([TitaniumDependencyResolverMixin,TitaniumProviderMixin,TitaniumRequesterMixin],Polymer.Element){
+    class MyElement extends TitaniumDependencyResolverMixin(TitaniumProviderMixin(TitaniumRequesterMixin(Polymer.Element)))[TitaniumDependencyResolverMixin,TitaniumProviderMixin,TitaniumRequesterMixin],Polymer.Element){
         async provideButtonTapped() {
             this.provideInstance('exampleService', {
                 favoriteMovie: 'Top Gun'
@@ -52,7 +52,7 @@ In this example we have a single instance component that is called user-manager 
 
 ### 1. Declare a parent component as the dependency resolver, which will store the references to provided objects (user-manager)
 ```typescript
-class MyParentComponent extends TitaniumDependencyResolverMixin(Polymer.Element) {
+class MyParentComponent extends  TitaniumDependencyResolverMixin(Polymer.Element) {
 
 }
 ```
@@ -83,7 +83,7 @@ class DemoRequester extends TitaniumRequesterMixin(Polymer.Element) {
 
 ### Be both a requester and provider
 ```typescript
-class MyComponent extends Polymer.mixinBehaviors([TitaniumProviderMixin,TitaniumRequesterMixin],Polymer.Element) {
+class MyComponent extends TitaniumProviderMixin(TitaniumRequesterMixin(Polymer.Element)) {
    ready() {
         super.ready();    
         this.provideInstance("MyComponent", this);
