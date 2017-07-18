@@ -8,7 +8,7 @@
                 cancelable: true
             };
             const event = new CustomEvent('titanium-provide-instance', options);
-            window.dispatchEvent(event);
+            this.dispatchEvent(event);
         };
     };
 };

@@ -3,7 +3,6 @@
         ready() {
             this.providers = {};
             this.unprovidedRequests = {};
-
             this.addEventListener('titanium-provide-instance', (event: CustomEvent) => {
                 const key: string = event.detail.key;
                 const instance: any = event.detail.instance;
