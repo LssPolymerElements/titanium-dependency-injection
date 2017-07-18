@@ -18,7 +18,6 @@
 
         public async requestInstance(key: string): Promise<any> {
             let value = await this.requestProvider(key);
-            console.log('request instance value:', value);
             return value;
         }
 
