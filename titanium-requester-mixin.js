@@ -12,12 +12,11 @@ let TitaniumRequesterMixin = (superClass) => {
                 cancelable: true
             };
             const event = new CustomEvent('titanium-request-instance', options);
-            window.dispatchEvent(event);
+            this.dispatchEvent(event);
             return promise;
         }
         async requestInstance(key) {
             let value = await this.requestProvider(key);
-            console.log('request instance value:', value);
             return value;
         }
         value(key) {

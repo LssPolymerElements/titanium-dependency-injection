@@ -1,4 +1,4 @@
-﻿let TitaniumRequesterMixin = (superClass: any) => {
+﻿let TitaniumRequesterMixin = (superClass: PolymerElementConstructor) => {
     return class extends superClass {
         private async requestProvider(key: string): Promise<any> {
             let resolveFn = (value: any) => { return value; };
@@ -12,7 +12,7 @@
                 cancelable: true
             };
             const event = new CustomEvent('titanium-request-instance', options);
-            window.dispatchEvent(event);
+            this.dispatchEvent(event);
             return promise;
         }
 
