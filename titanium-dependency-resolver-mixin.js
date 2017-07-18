@@ -3,7 +3,7 @@ let TitaniumDependencyResolverMixin = (superClass) => {
         ready() {
             this.providers = {};
             this.unprovidedRequests = {};
-            window.addEventListener('titanium-provide-instance', (event) => {
+            this.addEventListener('titanium-provide-instance', (event) => {
                 const key = event.detail.key;
                 const instance = event.detail.instance;
                 if (this.providers[key]) {
@@ -17,7 +17,7 @@ let TitaniumDependencyResolverMixin = (superClass) => {
                     });
                 }
             });
-            window.addEventListener('titanium-request-instance', (event) => {
+            this.addEventListener('titanium-request-instance', (event) => {
                 let key = event.detail.key;
                 let resolve = event.detail.resolve;
                 let instance = this.providers[key];

@@ -25,7 +25,9 @@
     ".gitignore",
     ".vscode"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "polymer2-ts": "^1.1.17"
+  },
   "devDependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
