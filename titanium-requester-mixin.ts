@@ -1,4 +1,4 @@
-﻿let TitaniumRequesterMixin = (superClass: any) => {
+﻿let TitaniumRequesterMixin = (superClass: PolymerElementConstructor) => {
     return class extends superClass {
         private async requestProvider(key: string): Promise<any> {
             let resolveFn = (value: any) => { return value; };

@@ -17,7 +17,6 @@ let TitaniumRequesterMixin = (superClass) => {
         }
         async requestInstance(key) {
             let value = await this.requestProvider(key);
-            console.log('request instance value:', value);
             return value;
         }
         value(key) {

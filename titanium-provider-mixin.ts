@@ -1,4 +1,4 @@
-﻿let TitaniumProviderMixin = (superClass: any) => {
+﻿let TitaniumProviderMixin = (superClass: PolymerElementConstructor) => {
     return class extends superClass {
         provideInstance(key: string, instance: any) {
             let options = {
