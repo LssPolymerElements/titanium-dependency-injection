@@ -39,7 +39,7 @@ notifications:
   template: "<{{buildUrl}}|Build [{{projectName}}] {{buildVersion}} {{status}}> Commit <{{commitUrl}}|{{commitId}}> by {{commitAuthor}} on {{commitDate}}: _{{commitMessage}}_"
   
 skip_tags: true
-version: 2.0.{build}
+version: 3.0.{build}
 deploy:
 - provider: GitHub
   auth_token:

@@ -1,16 +1,13 @@
-let TitaniumRequesterMixin = (superClass) => {
+let TitaniumRequesterMixin = function (superClass) {
     return class extends superClass {
         async requestProvider(key) {
-            let resolveFn = (value) => { return value; };
+            let resolveFn = (value) => {
+                return value;
+            };
             let promise = new Promise((resolve, reject) => {
                 resolveFn = resolve;
             });
-            let options = {
-                detail: { key, resolve: resolveFn },
-                bubbles: true,
-                composed: true,
-                cancelable: true
-            };
+            let options = { detail: { key, resolve: resolveFn }, bubbles: true, composed: true, cancelable: true };
             const event = new CustomEvent('titanium-request-instance', options);
             this.dispatchEvent(event);
             return promise;

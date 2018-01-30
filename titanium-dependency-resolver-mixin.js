@@ -1,4 +1,4 @@
-let TitaniumDependencyResolverMixin = (superClass) => {
+let TitaniumDependencyResolverMixin = function (superClass) {
     return class extends superClass {
         ready() {
             this.providers = {};
