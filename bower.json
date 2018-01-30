@@ -18,12 +18,9 @@
   "description": "Dependency injection for Polymer",
   "license": "MIT",
   "ignore": [
+    "**/.*",
     "node_modules",
-    "bower_components",
-    "package.json",
-    "tsconfig.json",
-    ".gitignore",
-    ".vscode"
+    "bower_components"
   ],
   "dependencies": {},
   "devDependencies": {
