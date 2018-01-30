@@ -16,7 +16,8 @@
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "outDir": "lib",
-    "rootDir": "src"
+    "rootDir": "src",
+    "declarationDir": "types"
   },
   "include": [
     "bower_components/polymer/types/polymer-element.d.ts",
