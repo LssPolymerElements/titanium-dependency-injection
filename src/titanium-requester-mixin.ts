@@ -1,11 +1,11 @@
 ﻿let TitaniumRequesterMixin = function<T extends new (...args: any[]) => {}>(superClass: T) {
   return class extends superClass {
     declare dispatchEvent: any;
-    private async requestProvider(key: string): Promise<any> {
+    async requestProvider(key: string): Promise<any> {
       let resolveFn = (value: any) => {
         return value;
       };
-      let promise = new Promise<any>((resolve, reject) => {
+      let promise = new Promise<any>((resolve) => {
         resolveFn = resolve;
       });
       let options = {detail: {key, resolve: resolveFn}, bubbles: true, composed: true, cancelable: true};
@@ -19,7 +19,7 @@
       return value;
     }
 
-    private value(key: string) {
+    value(key: string) {
       return () => this.requestInstance(key);
     }
   };
