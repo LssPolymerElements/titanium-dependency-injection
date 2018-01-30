@@ -1,19 +1,26 @@
 ﻿{
   "compilerOptions": {
-    "target": "es2017",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
+    "target": "es6",
+    "lib": [
+      "es2016",
+      "dom"
+    ],
     "noImplicitAny": true,
-    "sourceMap": false,
-    "lib": ["es2017", "dom"],
-    "typeRoots": ["types"]
+    "declaration": true,
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "alwaysStrict": true,
+    "allowJs": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "outDir": "lib",
+    "rootDir": "src",
+    "declarationDir": "types"
   },
-  "compileOnSave": true,
-  "exclude": [
-    "build",
-    "node_modules",
-    "bower_components/reflect-metadata/"
+  "include": [
+    "bower_components/polymer/types/polymer-element.d.ts",
+    "src/**/*.ts"
   ]
 }

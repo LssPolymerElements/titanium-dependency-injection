@@ -1,6 +1,6 @@
 {
   "name": "titanium-dependency-injection",
-  "version": "1.0.1",
+  "version": "3.0.1",
   "keywords": [
     "Leavitt Software Solutions",
     "Polymer 2",
@@ -18,18 +18,13 @@
   "description": "Dependency injection for Polymer",
   "license": "MIT",
   "ignore": [
+    "**/.*",
     "node_modules",
-    "bower_components",
-    "package.json",
-    "tsconfig.json",
-    ".gitignore",
-    ".vscode"
+    "bower_components"
   ],
-  "dependencies": {
-    "polymer2-ts": "^1.1.17"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "polymer": "Polymer/polymer#^2.0.0",
+    "polymer": "Polymer/polymer#^2.4.0",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
     "web-component-tester": "^6.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
