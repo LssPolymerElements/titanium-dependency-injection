@@ -7,13 +7,21 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "sourceMap": false,
-    "lib": ["es2017", "dom"],
-    "typeRoots": ["types"]
+    "declaration": true,
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "typeRoots": [
+      "types"
+    ]
   },
   "compileOnSave": true,
+  "include": [
+    "bower_components/polymer/types/polymer-element.d.ts",
+  ],
   "exclude": [
     "build",
-    "node_modules",
-    "bower_components/reflect-metadata/"
+    "node_modules"
   ]
 }
